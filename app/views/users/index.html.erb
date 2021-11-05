@@ -1,0 +1,15 @@
+<div style="text-align: center;">
+  <h>Total Users List</h>
+  <p>
+  <%= form_tag('/users_data') do -%>
+    <div><%= submit_tag 'Get Users' %></div>
+  <% end -%>
+  </p>
+  <p>
+  <h>User Info</h>
+  <%= form_tag("/users_data") do %>
+     <%= text_field_tag(:user_id) %>
+     <%= submit_tag("Search") %>
+  <% end %>
+  </p>
+</div>

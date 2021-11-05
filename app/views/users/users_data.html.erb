@@ -1,0 +1,71 @@
+<html>
+<head>
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+<% if @user_id.present? %>
+<% user = @results["user"] %>
+<table>
+  <tr>
+    <th>UserName</th>
+    <th>Company</th>
+    <th>Position</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Planet</th>
+    <th>Species</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td><%= user["name"] %></td>
+    <td><%= user["company"] %></td>
+    <td><%= user["position"] %></td>
+    <td><%= user["profile"]["age"] %></td>
+    <td><%= user["profile"]["gender"] %></td>
+    <td><%= user["profile"]["planet"] %></td>
+    <td><%= user["profile"]["species"] %></td>
+    <td><%= user["profile"]["status"] %></td>
+  </tr>
+</table>
+
+<% else %>
+
+<table>
+  <tr>
+    <th>UserName</th>
+    <th>Company</th>
+    <th>Position</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Planet</th>
+    <th>Species</th>
+    <th>Status</th>
+  </tr>
+  <% @results["users"].each do |user|%>
+    <tr>
+      <td><%= user["name"] %></td>
+      <td><%= user["company"] %></td>
+      <td><%= user["position"] %></td>
+      <td><%= user["profile"]["age"] %></td>
+      <td><%= user["profile"]["gender"] %></td>
+      <td><%= user["profile"]["planet"] %></td>
+      <td><%= user["profile"]["species"] %></td>
+      <td><%= user["profile"]["status"] %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% end %>
+
+</body>
+</html>
+<%= link_to "Back", users_path%>
